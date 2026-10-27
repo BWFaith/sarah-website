@@ -24,7 +24,7 @@
     <iframe loading="lazy" title="Map" src="https://maps.google.com/maps?q=${cityQ}&output=embed"></iframe>
   </div>
   <aside class="side">
-    <div class="box"><div class="agent"><img src="images/sarah/profile.jpg" alt="${S.name}"><div><b>${S.name}</b><small>REALTOR\u00ae | DRE #${S.dre}</small><a href="tel:${S.phone}"><b>${S.phone}</b></a></div></div>
+    <div class="box"><div class="agent"><img src="images/sarah/sarahu.png" alt="${S.name}"><div><b>${S.name}</b><small>REALTOR\u00ae | DRE #${S.dre}</small><a href="tel:${S.phone}"><b>${S.phone}</b></a></div></div>
       <form data-mail="Tour request: ${l.title}">
         <input type="hidden" name="Property" value="${l.title} (${l.addr}, ${l.city}) - ${fmtPrice(l)}">
         <label>Full name<input name="name" required autocomplete="name"></label>
