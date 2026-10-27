@@ -15,9 +15,17 @@
     <div><h3>Get in touch</h3><ul><li><a href="tel:${S.phone}">${S.phone}</a></li><li><a href="mailto:${S.email}">${S.email}</a></li><li>${S.addr}</li></ul></div></div>
     <div class="legal"><span>\u00a9 ${new Date().getFullYear()} ${S.name}, REALTOR\u00ae | DRE #${S.dre}. All rights reserved.</span><span>Equal Housing Opportunity</span></div></div></footer>`;
   const nav = $('#nav');
-  $('#burger').onclick = () => nav.classList.toggle('open');
-  $$('#menu a').forEach(a => a.addEventListener('click', () => nav.classList.remove('open')));
-
+  
+  const burger = $('#burger');
+const setMenu = open => {
+  nav.classList.toggle('open', open);
+  document.documentElement.classList.toggle('menu-open', open);
+  burger.setAttribute('aria-expanded', open);
+};
+burger.onclick = () => setMenu(!nav.classList.contains('open'));
+$$('#menu a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
+addEventListener('resize', () => { if (innerWidth > 860) setMenu(false); });
   /* ---------- Helpers shared by pages ---------- */
   const money = n => '$' + Number(n).toLocaleString('en-US');
   window.fmtPrice = l => money(l.price) + (l.status === 'rent' ? '/mo' : '');
